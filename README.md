@@ -30,7 +30,32 @@ kubectl get pods
 ```
 kubectl config view
 ```
-
+1.8 Get all nodes
+```
+kubectl get nodes
+```
+1.9 Describe node
+```
+kubectl describe node <node-name>
+```
+2.0 Get all ip on minikube
+```
+minikube ssh
+ip link show
+```
+2.1 Get all pods and services
+```
+kubectl get pod,svc -n kube-system
+```
+2.2 Get all IP in pod
+multi-network-pod = name pod;
+```
+kubectl exec -it multi-network-pod -- ip addr
+```
+2.3 Get all route in pod
+```
+kubectl exec -it multi-network-pod -- ip route
+```
 ## B. Error
 #### 1. Unable to resolve the current Docker CLI context "default": context "default": context not found: open C:\Users\tienn\.docker\contexts\meta\37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f\meta.json: The system cannot find the path specified.
 
