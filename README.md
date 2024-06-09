@@ -1,5 +1,6 @@
 # minikube-command
-
+### Reference
+https://kubernetes.io/docs/tutorials/hello-minikube/
 #### 1. Command
 1.1 Start minikube
 ```
@@ -25,3 +26,20 @@ kubectl get deployments
 ```
 kubectl get pods
 ```
+1.7 View config
+```
+kubectl config view
+```
+
+## B. Error
+#### 1. Unable to resolve the current Docker CLI context "default": context "default": context not found: open C:\Users\tienn\.docker\contexts\meta\37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f\meta.json: The system cannot find the path specified.
+
+when run "minikube service hello-node" it throw this error.
+fix
+```
+docker context use default
+```
+output:  
+C:\Users\tienn>docker context use default
+default
+Current context is now "default"
