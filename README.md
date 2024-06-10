@@ -89,6 +89,21 @@ minikube addons enable metrics-server
 ```
 minikube dashboard
 ```
+
+#### Minikube Hyper-V windows
+Reference: https://minikube.sigs.k8s.io/docs/drivers/hyperv/
+1. Enable Hyper-V
+```
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+```
+2. Start
+```
+minikube start --driver=hyperv 
+```
+3. Set default
+```
+minikube config set driver hyperv
+```
 ## B. Error
 #### 1. Unable to resolve the current Docker CLI context "default": context "default": context not found: open C:\Users\tienn\.docker\contexts\meta\37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f\meta.json: The system cannot find the path specified.
 
