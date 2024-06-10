@@ -116,3 +116,11 @@ output:
 C:\Users\tienn>docker context use default
 default
 Current context is now "default"
+#### 2. This error is likely caused by:
+        - The kubelet is not running
+        - The kubelet is unhealthy due to a misconfiguration of the node in some way (required cgroups disabled)
+** Fixed by set specific kubernetes version
+```
+1. minikube delete
+2. minikube start --kubernetes-version=v1.29.2
+```
