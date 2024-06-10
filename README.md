@@ -127,3 +127,9 @@ Current context is now "default"
 1. minikube delete
 2. minikube start --kubernetes-version=v1.29.2
 ```
+#### 3. Cannot  use kubectl on CMD (without permission Asministrator).
+Open CMD with permission and run
+```
+icacls %USERPROFILE%\.kube\config /grant %USERNAME%:F
+```
+Open CMD without permission to check kubectl work without permission
