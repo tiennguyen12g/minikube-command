@@ -128,8 +128,20 @@ Current context is now "default"
 2. minikube start --kubernetes-version=v1.29.2
 ```
 #### 3. Cannot  use kubectl on CMD (without permission Asministrator).
-Open CMD with permission and run
+Open CMD and file all kubectl.exe
 ```
-icacls %USERPROFILE%\.kube\config /grant %USERNAME%:F
+where kubectl
+output:
+:\Users\tienn>where kubectl
+C:\Users\tienn\kubectl
+C:\Users\tienn\kubectl.exe
+C:\Windows\System32\kubectl.exe
+C:\ProgramData\chocolatey\bin\kubectl.exe
+C:\Program Files\Docker\Docker\resources\bin\kubectl.exe
+C:\Program Files\Kubectl\kubectl.exe
 ```
-Open CMD without permission to check kubectl work without permission
+This is the caused make kubectl cannot run in CMD without permission by conflic.
+Keep use:
+C:\Windows\System32\kubectl.exe
+C:\Program Files\Docker\Docker\resources\bin\kubectl.exe
+and delete all remaining
