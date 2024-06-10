@@ -103,6 +103,8 @@ minikube start --driver=hyperv
 3. Set default
 ```
 minikube config set driver hyperv
+or
+minikube start --driver=hyperv --hyperv-virtual-switch "Primary Virtual Switch"
 ```
 ## B. Error
 #### 1. Unable to resolve the current Docker CLI context "default": context "default": context not found: open C:\Users\tienn\.docker\contexts\meta\37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f\meta.json: The system cannot find the path specified.
@@ -117,8 +119,9 @@ C:\Users\tienn>docker context use default
 default
 Current context is now "default"
 #### 2. This error is likely caused by:
-        - The kubelet is not running
-        - The kubelet is unhealthy due to a misconfiguration of the node in some way (required cgroups disabled)
+
+- The kubelet is not running
+- The kubelet is unhealthy due to a misconfiguration of the node in some way (required cgroups disabled)
 ** Fixed by set specific kubernetes version
 ```
 1. minikube delete
