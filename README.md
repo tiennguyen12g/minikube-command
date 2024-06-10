@@ -145,3 +145,25 @@ Keep use:
 C:\Windows\System32\kubectl.exe
 C:\Program Files\Docker\Docker\resources\bin\kubectl.exe
 and delete all remaining
+# C. Example Code
+#### 1. Create a proxy server by squid
+```
+# proxy-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: proxy-pod
+spec:
+  containers:
+  - name: squid
+    image: sameersbn/squid:3.5.27-2
+    ports:
+    - containerPort: 3128
+      protocol: TCP
+
+** Usage
+ 1. kubectl apply -f proxy-pod.yaml
+ 2. kubectl get pods (Make sure the pod is running)
+ 3. kubectl port-forward pod/proxy-pod 20000:3128
+ 20000 is forward port, you can change any port you like .
+```
