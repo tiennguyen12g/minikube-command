@@ -56,6 +56,39 @@ kubectl exec -it multi-network-pod -- ip addr
 ```
 kubectl exec -it multi-network-pod -- ip route
 ```
+
+#### 2. Open Kubernetes dashboard
+2.1 Run PowerShell with permission Administrator
+2.2 Start server
+```
+ minikube start --driver=hyperv          
+```
+2.3 Check node work.
+```
+minikube ssh
+curl -I https://index.docker.io
+output:
+HTTP/1.1 200 OK
+date: Mon, 10 Jun 2024 02:03:03 GMT
+content-type: text/html; charset=utf-8
+x-xss-protection: 1; mode=block
+x-docker-correlation-id: c243d07b-4e2a-49aa-8527-b570d65c6708
+x-docker-app-version: v4332.0.0
+accept-ch: Sec-CH-Prefers-Color-Scheme
+vary: Sec-CH-Prefers-Color-Scheme, Accept-Encoding
+x-frame-options: deny
+x-content-type-options: nosniff
+strict-transport-security: max-age=31536000
+```
+
+2.4 Install add-on before open dashboard
+```
+minikube addons enable metrics-server
+```
+2.5 Launch Kubernetes dashboard
+```
+minikube dashboard
+```
 ## B. Error
 #### 1. Unable to resolve the current Docker CLI context "default": context "default": context not found: open C:\Users\tienn\.docker\contexts\meta\37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f\meta.json: The system cannot find the path specified.
 
