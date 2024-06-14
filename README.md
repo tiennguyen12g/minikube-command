@@ -106,6 +106,14 @@ minikube config set driver hyperv
 or
 minikube start --driver=hyperv --hyperv-virtual-switch "Primary Virtual Switch"
 ```
+#### Install CNI (Container Network Interface)
+1. Install Multus
+```
+minikube addons enable default-storageclass
+minikube addons enable storage-provisioner
+kubectl apply -f https://raw.githubusercontent.com/k8snetworkplumbingwg/multus-cni/master/deployments/multus-daemonset-thick.yml
+```
+Check in Dashboard: Go to Cluster --> Cluster Roles. You will see "multus" in the list.
 ## B. Error
 #### 1. Unable to resolve the current Docker CLI context "default": context "default": context not found: open C:\Users\tienn\.docker\contexts\meta\37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f\meta.json: The system cannot find the path specified.
 
