@@ -89,6 +89,10 @@ minikube addons enable metrics-server
 ```
 minikube dashboard
 ```
+2.6 Check network-attach
+```
+kubectl get network-attachment-definitions
+```
 
 #### Minikube Hyper-V windows
 Reference: https://minikube.sigs.k8s.io/docs/drivers/hyperv/
